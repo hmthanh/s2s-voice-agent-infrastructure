@@ -5,15 +5,19 @@
 
 ---
 
-1. [**Phân tích bài toán cốt lõi**](#1-phân-tích-bài-toán-cốt-lõi) - Latency budget, concurrency model, cost anatomy
-2. [**Kiến trúc end-to-end**](#2-kiến-trúc-end-to-end) - Pipeline từng tầng chi tiết
-3. [**Bottlenecks ở scale lớn**](#3-bottlenecks-ở-scale-lớn) - Những gì vỡ từ 10K → 1M concurrent
-4. [**Chiến lược tối ưu latency**](#4-chiến-lược-tối-ưu-latency) - Pipeline parallelism và techniques cụ thể
-5. [**Chiến lược tối ưu chi phí**](#5-chiến-lược-tối-ưu-chi-phí) - Quantization, tiered service, caching
-6. [**Hạ tầng real-time**](#6-hạ-tầng-real-time) - Edge topology, LB, backpressure, observability
-7. [**Trade-offs**](#7-trade-offs) - Các lựa chọn có ý kiến rõ ràng
-8. [**Technology stack**](#8-technology-stack) - Stack cụ thể với version và config
-9. [**Bài học vận hành**](#9-bài-học-vận-hành) - Scar tissue, incident patterns, regrets
+1. [**TL;DR - Nếu bạn chỉ đọc 10 dòng**](#tldr---nếu-bạn-chỉ-đọc-10-dòng)
+2. [**Cấu trúc doc đầy đủ**](#cấu-trúc-doc-đầy-đủ)
+3. [**Các nguyên tắc xuyên suốt doc (principles)**](#các-nguyên-tắc-xuyên-suốt-doc-principles)
+4. [**Disclaimer về "kinh nghiệm thực tế"**](#disclaimer-về-kinh-nghiệm-thực-tế)
+5. [**Sẵn sàng đi sâu**](#sẵn-sàng-đi-sâu)
+6. [**Phần 2 - Kiến trúc end-to-end**](#phần-2---kiến-trúc-end-to-end)
+7. [**Phần 3 - Bottlenecks ở scale lớn**](#phần-3---bottlenecks-ở-scale-lớn)
+8. [**Phần 4 - Chiến lược tối ưu latency**](#phần-4---chiến-lược-tối-ưu-latency)
+9. [**Phần 5 - Chiến lược tối ưu chi phí**](#phần-5---chiến-lược-tối-ưu-chi-phí)
+10. [**Phần 6 - Thiết kế hạ tầng real-time**](#phần-6---thiết-kế-hạ-tầng-real-time)
+11. [**Phần 7 - Trade-offs quan trọng**](#phần-7---trade-offs-quan-trọng)
+12. [**Phần 8 - Technology stack đề xuất**](#phần-8---technology-stack-đề-xuất)
+13. [**Phần 9 - Bài học từ vận hành thực tế**](#phần-9---bài-học-từ-vận-hành-thực-tế)
 
 ## TL;DR - Nếu bạn chỉ đọc 10 dòng
 
@@ -6017,5 +6021,3 @@ If you're starting S2S infra and can only do 10 things, do these:
 8. ✅ **Leading indicator alerts** (not P99 lagging) - catch early
 9. ✅ **Warm pool for autoscale** - not reactive alone
 10. ✅ **Blameless post-mortems with tracked action items** - compound learning
-
-If you do these 10, you'll survive Year 1. Everything else in this doc is refinement on top.
